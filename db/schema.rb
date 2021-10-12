@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_203211) do
 
   create_table "listings", force: :cascade do |t|
     t.integer "available_beds"
-    t.integer "pice"
+    t.integer "price"
     t.text "description"
     t.boolean "has_wifi"
     t.text "welcome_message"

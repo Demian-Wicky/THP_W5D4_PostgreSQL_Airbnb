@@ -17,9 +17,9 @@ class Listing < ApplicationRecord
   validates :description,
     length: { in: 140..30000 }
 
-  validates :has_wifi
-    presence: true
+  validates :has_wifi,
+    inclusion: { in: [true, false] }
 
-  validates :welcome_message
+  validates :welcome_message,
     presence: true
 end

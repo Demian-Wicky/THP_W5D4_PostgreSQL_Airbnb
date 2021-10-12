@@ -22,4 +22,8 @@ class Reservation < ApplicationRecord
     (start_date...end_date).count
   end
 
+  def overlaping_reservation?
+    
+  end
+
 end
