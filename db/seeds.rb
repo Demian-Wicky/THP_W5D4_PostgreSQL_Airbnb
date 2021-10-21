@@ -1,7 +1,7 @@
 City.delete_all
 User.delete_all
 Listing.delete_all
-# Reservation.delete_all
+Reservation.delete_all
 
 zip_codes = ["67000", "68400", "68170", "06500", "68150", "68125", "68300", "67500", "57000", "54000"]
 city_names = ["Strasbourg", "Riedisheim", "Rixheim", "Menton", "Ribeauvillé", "Colmar", "Saint-Louis", "Haguenau", "Metz", "Nancy"]
@@ -37,3 +37,29 @@ puts "20 Users created!"
   )
 end
 puts "50 Listings created!"
+
+5.times do
+  user = User.all.shuffle.last
+  listing = Listing.all.shuffle.last
+  start_date = Faker::Date.forward(days: rand(2..365))
+  Reservation.create!(
+    start_date: start_date,
+    end_date: start_date.advance(days: rand(1..21)),
+    user_id: user.id,
+    listing_id: listing.id
+  )
+end
+puts "5 future Reservations created!"
+
+5.times do
+  user = User.all.shuffle.last
+  listing = Listing.all.shuffle.last
+  start_date = Faker::Date.backward(days: rand(2..365))
+  Reservation.new(
+    start_date: start_date,
+    end_date: start_date.advance(days: rand(1..21)),
+    user_id: user.id,
+    listing_id: listing.id
+  ).save(validate: false)
+end
+puts "5 past Reservations created!"
