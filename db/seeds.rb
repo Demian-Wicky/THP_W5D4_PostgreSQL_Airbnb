@@ -1,6 +1,7 @@
 City.delete_all
 User.delete_all
 Listing.delete_all
+# Reservation.delete_all
 
 zip_codes = ["67000", "68400", "68170", "06500", "68150", "68125", "68300", "67500", "57000", "54000"]
 city_names = ["Strasbourg", "Riedisheim", "Rixheim", "Menton", "Ribeauvillé", "Colmar", "Saint-Louis", "Haguenau", "Metz", "Nancy"]
